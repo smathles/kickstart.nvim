@@ -1,7 +1,28 @@
 --[[
 
+TODO: 
+- Configure neo-tree to:
+    - Open to cwd of whichever file is currently open (obviously not the tree window though)
+    - Hitting "enter" in the tree will open that file in a new window tab, not override current windows
+    - IDK other keybindings?
+    - Figure out how to open directories in neotree? Recursively? Non-Recursively?
+    - How to find directories using the "/" search functionality?
+- Configure tab-manager-plugin-of-some-sort to:
+    - Have clickable "X's" to close
+    - Navigate using ctrl+tab and ctrl+shift+tab
+    - New files using ctrl+t and close tabs using ctrl+w?
+- Configure code-runner to:
+    - IDK run code?
+2024/9/9:
+- Add ctrl+backspace/delete MAYBE if I feel like being a vi heretic. I found it
+- Add shift-tab keybind maybe
+- Definitely add neo-tree keybinds
+- Definitely add the tabs/bar plugin thing
+
+
+
 =====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
+=================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
 ========         .----------------------.   | === |          ========
@@ -84,6 +105,19 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+--[[
+Cameron's Amazing Notes!
+
+- The leader key is the key which is used to enter the "menu" for all the cool as commands that neovim has!
+  - In our case, leader is set to <space>.
+- I'm not sure about the below commands to set the tabwidth -\_(:])_/-
+--]]
+-----------------------------------------------------------------------------------------------------------------------
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -91,7 +125,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -921,7 +955,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
