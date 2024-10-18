@@ -815,7 +815,12 @@ require('lazy').setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
-      -- vim.o.background = "dark"
+      -- Override the palette with your custom colors.
+      require('gruvbox').setup {
+        overrides = {
+          SignColumn = { bg = '#282828' }, -- Make signcolumn color be consistent with rest of colourscheme
+        },
+      }
       vim.cmd.colorscheme 'gruvbox'
 
       -- You can configure highlights by doing something like:
