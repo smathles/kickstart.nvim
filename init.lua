@@ -13,10 +13,17 @@ TODO:
     - New files using ctrl+t and close tabs using ctrl+w?
 - Configure code-runner to:
     - IDK run code?
+
 2024/9/9:
 - Add ctrl+backspace/delete MAYBE if I feel like being a vi heretic. I found it
 - Definitely add neo-tree keybinds
 - Definitely add the tabs/bar plugin thing
+
+2024/10/19:
+- Reconfigure key bindings extensively! I want:
+  - [leader] + e to open explorer (home or root)
+  - [leader] + E to open explorer (pwd)
+  - and systemise your [leader] keybindings in general! Also make sure they're documented, whether automatically or otherwise.
 
 Learning Lua is based, would highly recommend learning it properly using
     a guide. One possible example which will only take 10-15 minutes:
