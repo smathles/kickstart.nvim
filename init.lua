@@ -425,20 +425,35 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-
-  -- LSP Plugins
-  {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+  --
+  -- -- Hyprlang LSP
+  -- vim
+  --   .api
+  --   .nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  --     pattern = { '*.hl', 'hypr*.conf' },
+  --     callback = function(event)
+  --       print(string.format('starting hyprls for %s', vim.inspect(event)))
+  --       vim.lsp.start {
+  --         name = 'hyprlang',
+  --         cmd = { 'hyprls' },
+  --         root_dir = vim.fn.getcwd(),
+  --       }
+  --     end,
+  --   })
+  --
+    -- LSP Plugins
+    {
+      -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+      -- used for completion, annotations and signatures of Neovim apis
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          -- Load luvit types when the `vim.uv` word is found
+          { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+        },
       },
     },
-  },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
@@ -871,52 +886,7 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
-      -- ########################################################################################### Copypasta from reddit
-      --       local header_art = [[
-      -- ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
-      -- │││├┤ │ │╰┐┌╯││││
-      -- ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
-      --       ]]
-      --
-      --       require('mini.sessions').setup {
-      --         -- whether to read latest session if neovim opened without file arguments
-      --         autoread = false,
-      --         -- whether to write current session before quitting neovim
-      --         autowrite = false,
-      --         -- directory where global sessions are stored (use `''` to disable)
-      --         directory = '~/.vim/sessions', --<"session" subdir of user data directory from |stdpath()|>,
-      --         -- file for local session (use `''` to disable)
-      --         file = '', -- 'session.vim',
-      --       }
-      --
-      --       local starter = require 'mini.starter'
-      --       starter.setup {
-      --         -- evaluate_single = true,
-      --         items = {
-      --           starter.sections.sessions(77, true),
-      --           starter.sections.builtin_actions(),
-      --         },
-      --         content_hooks = {
-      --           function(content)
-      --             local blank_content_line = { { type = 'empty', string = '' } }
-      --             local section_coords = starter.content_coords(content, 'section')
-      --             -- insert backwards to not affect coordinates
-      --             for i = #section_coords, 1, -1 do
-      --               table.insert(content, section_coords[i].line + 1, blank_content_line)
-      --             end
-      --             return content
-      --           end,
-      --           starter.gen_hook.adding_bullet '» ',
-      --           starter.gen_hook.aligning('center', 'center'),
-      --         },
-      --         header = header_art,
-      --         footer = '',
-      --       }
-      --
-      -- ########################################################################################### Copypasta from reddit
-
       require('mini.starter').setup()
-
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
