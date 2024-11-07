@@ -1,5 +1,11 @@
---[[
+--  _   _                 _
+-- | \ | | ___  _____   _(_)_ __ ___
+-- |  \| |/ _ \/ _ \ \ / / | '_ ` _ \
+-- | |\  |  __/ (_) \ V /| | | | | | |
+-- |_| \_|\___|\___/ \_/ |_|_| |_| |_|
 
+--[[
+-----------------------------------------------------------------------------------------------------------------------
 TODO: 
 - Configure neo-tree to:
     - Open to cwd of whichever file is currently open (obviously not the tree window though)
@@ -15,7 +21,7 @@ TODO:
     - IDK run code?
 
 2024/9/9:
-- Add ctrl+backspace/delete MAYBE if I feel like being a vi heretic. I found it
+- Add ctrl+backspace/delete MAYBE if I feel like being a vi heretic.
 - Definitely add neo-tree keybinds
 - Definitely add the tabs/bar plugin thing
 
@@ -25,10 +31,10 @@ TODO:
   - [leader] + E to open explorer (pwd)
   - and systemise your [leader] keybindings in general! Also make sure they're documented, whether automatically or otherwise.
 
-Learning Lua is based, would highly recommend learning it properly using
-    a guide. One possible example which will only take 10-15 minutes:
-      - https://learnxinyminutes.com/docs/lua/
 
+
+
+TJ's interesting stuff!:
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
     reference for how Neovim integrates Lua.
     - :help lua-guide
@@ -37,25 +43,14 @@ Learning Lua is based, would highly recommend learning it properly using
   Next, run AND READ `:help`.
     This will open up a help window with some basic information
     about reading, navigating and searching the builtin help documentation.
-
-    This should be the first place you go to look when you're stuck or confused
-    with something. It's one of my favorite Neovim features.
-
     MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
     which is very useful when you're not exactly sure of what you're looking for.
 
-  I have left several `:help X` comments throughout the init.lua
-    These are hints about where to find more information about the relevant settings,
-    plugins or Neovim features used in Kickstart.
-
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
 
-I hope you enjoy your Neovim journey,
-- TJ
 
---]]
 
---[[
+
 Cameron's Amazing Notes!
 
 - The leader key is the key which is used to enter the "menu" for all the cool as commands that neovim has!
@@ -63,6 +58,12 @@ Cameron's Amazing Notes!
 - I'm not sure about the below commands to set the tabwidth -\_(:])_/-
 --]]
 -----------------------------------------------------------------------------------------------------------------------
+
+--  ___      _
+-- / __| ___| |_ _  _ _ __
+-- \__ \/ -_)  _| || | '_ \
+-- |___/\___|\__|\_,_| .__/
+--                   |_|
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -157,27 +158,11 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
+
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
--- [[ Cameron's amazing edits to the basic Kickstart file!]]
--- They start here fr fr
-
--- Change basic tab to 4 spaces because I'm not a psychopath
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
-
--- Add in shift+tab to dedent lines in insert mode
-vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
-
--- Add in termguicolors for the bufferline plugin (they're also just good)
-vim.opt.termguicolors = true
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -192,6 +177,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- [[ Cameron's amazing edits to the basic Kickstart file!]]
+-- ################################################################################################################################
+
+-- Change basic tab to 4 spaces because I'm not a psychopath
+-- vim.o.tabstop = 4
+-- vim.o.shiftwidth = 4
+-- vim.o.softtabstop = 4
+-- vim.o.expandtab = true
+-- 2024/11/04, TPOPE'S VIM SLEUTH THING ALREADY AUTODETECTS LOL
+
+-- Add in shift+tab to dedent lines in insert mode
+vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
+
+-- Add in termguicolors for the bufferline plugin (they're also just good)
+vim.opt.termguicolors = true
+-- --------------------------------------------------------------------------------------------------------------------------------
+
+--  ___ _           _
+-- | _ \ |_  _ __ _(_)_ _  ___
+-- |  _/ | || / _` | | ' \(_-<
+-- |_| |_|\_,_\__, |_|_||_/__/
+--            |___/
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -226,7 +234,6 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
-
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -441,19 +448,19 @@ require('lazy').setup({
   --     end,
   --   })
   --
-    -- LSP Plugins
-    {
-      -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      'folke/lazydev.nvim',
-      ft = 'lua',
-      opts = {
-        library = {
-          -- Load luvit types when the `vim.uv` word is found
-          { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-        },
+  -- LSP Plugins
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
       },
     },
+  },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
