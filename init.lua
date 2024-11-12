@@ -48,13 +48,6 @@ TJ's interesting stuff!:
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
 
 
-
-
-Cameron's Amazing Notes!
-
-- The leader key is the key which is used to enter the "menu" for all the cool as commands that neovim has!
-  - In our case, leader is set to <space>.
-- I'm not sure about the below commands to set the tabwidth -\_(:])_/-
 --]]
 -----------------------------------------------------------------------------------------------------------------------
 
@@ -179,13 +172,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Cameron's amazing edits to the basic Kickstart file!]]
 -- ################################################################################################################################
-
--- Change basic tab to 4 spaces because I'm not a psychopath
--- vim.o.tabstop = 4
--- vim.o.shiftwidth = 4
--- vim.o.softtabstop = 4
--- vim.o.expandtab = true
--- 2024/11/04, TPOPE'S VIM SLEUTH THING ALREADY AUTODETECTS LOL
 
 -- Add in shift+tab to dedent lines in insert mode
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
@@ -446,7 +432,7 @@ require('lazy').setup({
   --       }
   --     end,
   --   })
-  --
+
   -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -478,28 +464,6 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      -- Brief aside: **What is LSP?**
-      --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
-      --
-      -- LSP stands for Language Server Protocol. It's a protocol that helps editors
-      -- and language tooling communicate in a standardized fashion.
-      --
-      -- In general, you have a "server" which is some tool built to understand a particular
-      -- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-      -- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-      -- processes that communicate with some "client" - in this case, Neovim!
-      --
-      -- LSP provides Neovim with features like:
-      --  - Go to definition
-      --  - Find references
-      --  - Autocompletion
-      --  - Symbol Search
-      --  - and more!
-      --
-      -- Thus, Language Servers are external tools that must be installed separately from
-      -- Neovim. This is where `mason` and related plugins come into play.
-      --
       -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
       -- and elegantly composed help section, `:help lsp-vs-treesitter`
 
@@ -675,6 +639,7 @@ require('lazy').setup({
     end,
   },
 
+  ---------------------------------------------------- (Autocompletion/Autoformat)
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -834,6 +799,7 @@ require('lazy').setup({
     end,
   },
 
+  --------------------------------------------------------------- (Misc quality-of-life plugins)
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -859,6 +825,7 @@ require('lazy').setup({
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
+  ------------------------------------------------------------------------------------- (mini.nvim)
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -897,6 +864,8 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+
+  -------------------------------------------------------------------------------- (Treesitter)
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -923,32 +892,22 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
+  ------------------------------------------------------------------------------------------------------- (modular plugins)
 
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  -- require 'plugins.debug',
+  -- require 'plugins.indent_line',
+  require 'plugins.lint',
+  require 'plugins.autopairs',
+  require 'plugins.neo-tree',
+  -- require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
 
-  -- [[Cameron's custom plugins]]
-  -- require 'custom.plugins'
-  -- Wait is this how it works???
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  { import = 'custom.plugins' },
+  --  Uncomment the following line and add your plugins to `lua/plugins/*.lua` to get going.
+  { import = 'plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
