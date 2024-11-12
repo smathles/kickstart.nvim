@@ -14,15 +14,11 @@ TODO:
     - How to find directories using the "/" search functionality?
 - Configure tab-manager-plugin-of-some-sort to:
     - Have clickable "X's" to close
-    - Navigate using ctrl+tab and ctrl+shift+tab
-    - New files using ctrl+t and close tabs using ctrl+w?
+    - Navigate using alt+tab and alt+shift+tab
+    - New files using alt+t and close tabs using alt+w?
 - Configure code-runner to:
     - IDK run code?
 
-2024/9/9:
-- Add ctrl+backspace/delete MAYBE if I feel like being a vi heretic.
-- Definitely add neo-tree keybinds
-- Definitely add the tabs/bar plugin thing
 
 2024/10/19:
 - Reconfigure key bindings extensively! I want:
@@ -37,7 +33,9 @@ TODO:
   - I like NvChad's tabline stuff, especially alt+tab to shift neovim-specific tabs!
     - Also implement alt+w and alt+t to close and open new files respectively.
   - I'm sick of the bad search functionality in neo-tree. Use NvChad's file explorer!
-  - 
+- REMAP x AND d TO NOT GET SAVED TO THE REGISTER!!!!! 
+  - Or at least move them to a "deleted" register, rather than my beloved normal "default, global clipboard" register.
+
 
 
 TJ's interesting stuff!:
@@ -183,6 +181,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Add in shift+tab to dedent lines in insert mode
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
+-- Add ctrl+backspace to delete word in insert mode (heresy)
+vim.keymap.set('i', '<C-BS>', '<C-w>', { noremap = true, silent = true })
 -- Add in termguicolors for the bufferline plugin (they're also just good)
 vim.opt.termguicolors = true
 -- --------------------------------------------------------------------------------------------------------------------------------
@@ -904,11 +904,11 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'plugins.debug',
-  -- require 'plugins.indent_line',
   require 'plugins.lint',
   require 'plugins.autopairs',
   require 'plugins.neo-tree',
   -- require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
+  -- require 'plugins.statuslines',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/plugins/*.lua`
   --    This is the easiest way to modularize your config.
