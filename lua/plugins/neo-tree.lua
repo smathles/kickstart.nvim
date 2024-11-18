@@ -57,7 +57,6 @@ return {
         },
       },
     },
-    -- I would like to expand functionality in the future. For now it is good enough!
   },
 }
 -- {

@@ -25,6 +25,3 @@ vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
 -- Add ctrl+backspace to delete word in insert mode (heretic)
 vim.keymap.set('i', '<C-BS>', '<C-w>', { noremap = true, silent = true })
-
--- Add in termguicolors for the bufferline plugin (they're also just good)
-vim.opt.termguicolors = true

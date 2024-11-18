@@ -67,6 +67,8 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Add in termguicolors for the bufferline plugin (they're also just good)
+vim.opt.termguicolors = true
 ------------------------------------------------------------------------ [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

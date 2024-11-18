@@ -709,37 +709,7 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-  --
-  -- {
-  --   'folke/snacks.nvim',
-  --   priority = 1000,
-  --   lazy = false,
-  --   opts = {},
-  -- },
-  --
-  -- {
-  --   'akinsho/bufferline.nvim',
-  --   keys = {
-  --     { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', desc = 'Toggle Pin' },
-  --     { '<leader>bP', '<Cmd>BufferLineGroupClose ungrouped<CR>', desc = 'Delete Non-Pinned Buffers' },
-  --     { '<leader>br', '<Cmd>BufferLineCloseRight<CR>', desc = 'Delete Buffers to the Right' },
-  --     { '<leader>bl', '<Cmd>BufferLineCloseLeft<CR>', desc = 'Delete Buffers to the Left' },
-  --     { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
-  --     { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
-  --     { '[b', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
-  --     { ']b', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
-  --     { '[B', '<cmd>BufferLineMovePrev<cr>', desc = 'Move buffer prev' },
-  --     { ']B', '<cmd>BufferLineMoveNext<cr>', desc = 'Move buffer next' },
-  --   },
-  --   opts = {
-  --     -- options = {
-  --     --   -- stylua: ignore
-  --     --   close_command = function(n) Snacks.bufdelete(n) end,
-  --     --   -- stylua: ignore
-  --     --   right_mouse_command = function(n) Snacks.bufdelete(n) end,
-  --     --   },
-  --   },
-  -- },
+
   -- ------------------------------------------------------------------------------------------------------- (modular plugins)
 
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).

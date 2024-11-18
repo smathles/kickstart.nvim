@@ -19,15 +19,7 @@ TODO:
 - Configure code-runner to:
     - IDK run code?
 
-
-2024/10/19:
-- Reconfigure key bindings extensively! I want:
-  - [leader] + e to open explorer (home or root)
-  - [leader] + E to open explorer (pwd)
-  - and systemise your [leader] keybindings in general! Also make sure they're documented, whether automatically or otherwise.
-
 2024/11/12:
-- leader key (space) does not work in neotree.
 - Style choices:
   - Statusbar: I like halfway between Astronvim and LazyVim
   - I like NvChad's tabline stuff, especially alt+tab to shift neovim-specific tabs!
@@ -49,6 +41,6 @@ TJ's interesting stuff!:
 --]]
 -----------------------------------------------------------------------------------------------------------------------
 
-require 'setup'
-require 'keymaps'
-require 'plugin_init'
+require 'core.setup'
+require 'core.keymaps'
+require 'core.plugin_init'
