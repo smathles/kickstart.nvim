@@ -57,6 +57,7 @@ BUFFERLINE:
 - change the dividing style to look like not bad
 - change coloursheme consistently with everything else!
 - set sane keybinds (maybe alt+tab, leader/leader+tab, something else?)
+- currently closing a buffer using the keybind is not handled gracefully
 TODO-COMMENTS:
 - make highlighting consistent!
 

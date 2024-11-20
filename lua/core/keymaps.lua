@@ -30,10 +30,10 @@ vim.keymap.set('n', '<leader><Tab>', ':bnext<CR>') -- Next buffer with leader + 
 vim.keymap.set('n', '<leader><S-Tab>', ':bprevious<CR>') -- Previous buffer with leader + Shift + Tab
 vim.keymap.set('n', '<A-Tab>', ':bnext<CR>') -- Next buffer with Alt + Tab
 vim.keymap.set('n', '<A-S-Tab>', ':bprevious<CR>') -- Previous buffer with Alt + Shift + Tab
-vim.keymap.set('n', '<leader>b n', ':bnext<CR>', { desc = 'Next buffer' }) -- Next buffer with leader + b + n
-vim.keymap.set('n', '<leader>b p', ':bprevious<CR>', { desc = 'Previous buffer' }) -- Previous buffer with leader + b + p
-vim.keymap.set('n', '<leader>b x', ':bdelete!<CR>', { desc = 'Close buffer' }) -- Close buffer with leader + b + x
-vim.keymap.set('n', '<leader>b a', '<cmd> enew <CR>', { desc = 'New buffer' }) -- New buffer with leader + b + a
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' }) -- Next buffer with leader + b + n
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' }) -- Previous buffer with leader + b + p
+vim.keymap.set('n', '<leader>bx', ':bdelete!<CR>', { desc = 'Close buffer' }) -- Close buffer with leader + b + x
+vim.keymap.set('n', '<leader>ba', '<cmd> enew <CR>', { desc = 'New buffer' }) -- New buffer with leader + b + a
 
 -- Add in shift+tab to dedent lines in insert mode
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
