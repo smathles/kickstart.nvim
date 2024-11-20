@@ -1,3 +1,8 @@
+--[[
+TODO:
+This plugin still has the following issues:
+- opening neovim in a directory doesn't change the path
+--]]
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
@@ -30,6 +35,7 @@ return {
       use_libuv_file_watcher = true,
     },
     window = {
+      width = 25,
       mappings = {
         ['<space>'] = false,
         ['Y'] = { -- Yank filepath to clipboard!

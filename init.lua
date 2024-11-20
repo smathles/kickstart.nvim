@@ -28,7 +28,10 @@ TODO:
 - REMAP x AND d TO NOT GET SAVED TO THE REGISTER!!!!! 
   - Or at least move them to a "deleted" register, rather than my beloved normal "default, global clipboard" register.
 
-
+2024/11/19:
+- Maybe group plugins by type?
+    - like UI (lualine/bufferline/colourscheme), backend (linting, treesitter, LSP) etc
+    - group by singular file or further directories?
 
 TJ's interesting stuff!:
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
@@ -40,7 +43,28 @@ TJ's interesting stuff!:
     which is very useful when you're not exactly sure of what you're looking for.
 --]]
 -----------------------------------------------------------------------------------------------------------------------
+--[[
+FIXME:
+NEOTREE:
+- opening neovim in a directory doesn't change the path
+- make it dynamically reloading, update directory displayed when directory is changed via command or maybe file focused.
+LUALINE:
+- Doesn't work properly on neotree.
+- doesn't display keystrokes entered
+BUFFERLINE:
+- want 'x' icon to change to red colour on focus (maybe)?
+- want to be able to close tab with middle click
+- change the dividing style to look like not bad
+- change coloursheme consistently with everything else!
+- set sane keybinds (maybe alt+tab, leader/leader+tab, something else?)
+TODO-COMMENTS:
+- make highlighting consistent!
 
+TODO:
+- Fix the mess that is plugin_init
+- Make colourscheme global somehow? Not sure how to do this (---@param or something like that?)
+- Disable middle-click paste!
+--]]
 require 'core.setup'
 require 'core.keymaps'
 require 'core.plugin_init'
