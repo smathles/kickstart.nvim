@@ -19,7 +19,7 @@ return {
         right_trunc_marker = '',
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-        tab_size = 21,
+        tab_size = 20,
         diagnostics = true, --false,
         diagnostics_update_in_insert = true, --false,
         color_icons = true,
@@ -27,13 +27,11 @@ return {
         show_buffer_close_icons = true,
         show_close_icon = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
-        always_show_bufferline = true,
+        always_show_bufferline = false,
         show_tab_indicators = false,
         indicator = {
-          -- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-          style = 'none', -- Options: 'icon', 'underline', 'none'
+          style = 'none',
         },
         icon_pinned = '󰐃',
         minimum_padding = 1,
@@ -45,18 +43,21 @@ return {
             filetype = 'neo-tree',
             text = 'Neo-tree',
             highlight = 'Directory',
-            text_align = 'left',
-            separator = '│',
+            text_align = 'center',
+            separator = true,
           },
         },
       },
       highlights = {
+        offset_separator = {
+          bg = '#282828', -- Gruvbox background, find a better way to declare this
+        },
         separator = {
-          fg = '#282828',
+          fg = '#434C5E', -- Gruvbox blue, find a better way to declare this
         },
         buffer_selected = {
           bold = true,
-          italic = false,
+          italic = true,
         },
         -- separator_selected = {},
         -- tab_selected = {},

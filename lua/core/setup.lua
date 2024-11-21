@@ -12,7 +12,9 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
---------------------------------------------------------------------------- [[ Setting options ]]
+-- Remove tilda characters!
+vim.opt.fillchars = { eob = ' ' }
+
 -- Make line numbers default
 vim.opt.number = true
 

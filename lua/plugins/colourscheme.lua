@@ -9,6 +9,9 @@ return { -- You can easily change to a different colorscheme.
     -- Load the colorscheme here.
     -- Override the palette with your custom colors.
     require('gruvbox').setup {
+      italic = {
+        comments = true,
+      },
       overrides = {
         SignColumn = { bg = '#282828' }, -- Make signcolumn color be consistent with rest of colourscheme
       },
