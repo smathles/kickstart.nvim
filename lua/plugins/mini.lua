@@ -17,7 +17,5 @@ return { -- Collection of various small independent plugins/modules
     require('mini.surround').setup()
 
     require('mini.starter').setup()
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
   end,
 }

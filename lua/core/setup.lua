@@ -21,17 +21,8 @@ vim.opt.number = true
 -- Optionally add relative line numbers, to help with jumping.
 -- vim.opt.relativenumber = true
 
--- Enable mouse mode
-vim.opt.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+vim.opt.mouse = 'a' -- Enable mouse mode
+vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -71,8 +62,12 @@ vim.opt.scrolloff = 10
 
 -- Add in termguicolors for the bufferline plugin (they're also just good)
 vim.opt.termguicolors = true
------------------------------------------------------------------------- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
+
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {

@@ -54,18 +54,15 @@ LUALINE:
 BUFFERLINE:
 - want 'x' icon to change to red colour on focus (maybe)?
 - want to be able to close tab with middle click
-- change the dividing style to look like not bad
-- change coloursheme consistently with everything else!
-- set sane keybinds (maybe alt+tab, leader/leader+tab, something else?)
 - currently closing a buffer using the keybind is not handled gracefully
 TODO-COMMENTS:
 - make highlighting consistent!
 
 TODO:
-- Fix the mess that is plugin_init
 - Make colourscheme global somehow? Not sure how to do this (---@param or something like that?)
+- add the funny lines-joining plugin somewhere
 - Disable middle-click paste!
 --]]
 require 'core.setup'
 require 'core.keymaps'
-require 'core.plugin_init'
+require 'core.lazy_init'
