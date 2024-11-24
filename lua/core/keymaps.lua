@@ -18,7 +18,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Exit terminal mode in the builtin terminal with a nicer shortcut
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -32,10 +31,20 @@ vim.keymap.set('n', '<A-Tab>', ':bnext<CR>') -- Next buffer with Alt + Tab
 vim.keymap.set('n', '<A-S-Tab>', ':bprevious<CR>') -- Previous buffer with Alt + Shift + Tab
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' }) -- Next buffer with leader + b + n
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' }) -- Previous buffer with leader + b + p
-vim.keymap.set('n', '<leader>bx', ':bdelete!<CR>', { desc = 'Close buffer' }) -- Close buffer with leader + b + x
+
+-- Snacks Buffer handling to retain window conditions on buffer close
+vim.keymap.set('n', '<leader>bx', function()
+  require('snacks').bufdelete()
+end, { desc = 'Close current buffer' })
+
+vim.keymap.set('n', '<leader>bq', function()
+  require('snacks').bufdelete.all()
+end, { desc = 'Close all buffers' })
+
 vim.keymap.set('n', '<leader>ba', '<cmd> enew <CR>', { desc = 'New buffer' }) -- New buffer with leader + b + a
 
 -- Add in shift+tab to dedent lines in insert mode
+-- TODO: Make this work for mid-line "tabs" as well
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
 -- Add ctrl+backspace to delete word in insert mode (heretic)

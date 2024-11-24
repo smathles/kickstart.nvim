@@ -35,7 +35,7 @@ TODO:
 
 TJ's interesting stuff!:
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
-    reference for how Neovim integrates Lua.
+  reference for how Neovim integrates Lua.
     - :help lua-guide
   
 
@@ -52,7 +52,6 @@ LUALINE:
 - Doesn't work properly on neotree.
 - doesn't display keystrokes entered
 BUFFERLINE:
-- want 'x' icon to change to red colour on focus (maybe)?
 - want to be able to close tab with middle click
 - currently closing a buffer using the keybind is not handled gracefully
 TODO-COMMENTS:
